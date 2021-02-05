@@ -1,0 +1,16 @@
+include: package:lint/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - '**/*.g.dart'
+    - '**/*.freezed.dart'
+    - 'test/**'
+
+#  errors:
+#    unused_import: ignore
+
+linter:
+  rules:
+    always_use_package_imports : true
+#    prefer_double_quotes: true
+    constant_identifier_names: false

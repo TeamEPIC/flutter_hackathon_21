@@ -1,0 +1,28 @@
+name: flutter_hackathon_21
+description: A new Flutter application for flutter hackathon 2021.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  logging: ^0.11.4
+  flutter_riverpod: ^0.12.3+1
+  freezed_annotation: ^0.12.0
+
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^1.11.1
+  freezed: ^0.12.7
+  lint: "1.4.0-dev.d210.1"
+
+flutter:
+  uses-material-design: true
