@@ -28,9 +28,16 @@ class BulletinHiveObject extends HiveObject {
   String content;
   @HiveField(4)
   BulletinType type;
+  @HiveField(7)
+  DateTime createdTme;
 
   BulletinHiveObject(
-      {this.user, this.title, this.additional, this.content, this.type});
+      {this.user,
+      this.title,
+      this.additional,
+      this.content,
+      this.type,
+      this.createdTme});
 
   factory BulletinHiveObject.fromJson(Map<String, dynamic> json) =>
       _$BulletinHiveObjectFromJson(json);
@@ -53,8 +60,6 @@ class UserHiveObject extends HiveObject {
   String city;
   @HiveField(6)
   List<BulletinHiveObject> bulletins;
-  @HiveField(7)
-  DateTime createdTme;
 
   UserHiveObject(
       {this.name,
@@ -63,8 +68,7 @@ class UserHiveObject extends HiveObject {
       this.bio,
       this.phone,
       this.city,
-      this.bulletins,
-      this.createdTme});
+      this.bulletins});
 
   factory UserHiveObject.fromJson(Map<String, dynamic> json) =>
       _$UserHiveObjectFromJson(json);

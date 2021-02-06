@@ -66,13 +66,14 @@ class BulletinHiveObjectAdapter extends TypeAdapter<BulletinHiveObject> {
       additional: fields[2] as String,
       content: fields[3] as String,
       type: fields[4] as BulletinType,
+      createdTme: fields[7] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, BulletinHiveObject obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.user)
       ..writeByte(1)
@@ -82,7 +83,9 @@ class BulletinHiveObjectAdapter extends TypeAdapter<BulletinHiveObject> {
       ..writeByte(3)
       ..write(obj.content)
       ..writeByte(4)
-      ..write(obj.type);
+      ..write(obj.type)
+      ..writeByte(7)
+      ..write(obj.createdTme);
   }
 
   @override
@@ -114,14 +117,13 @@ class UserHiveObjectAdapter extends TypeAdapter<UserHiveObject> {
       phone: fields[4] as String,
       city: fields[5] as String,
       bulletins: (fields[6] as List)?.cast<BulletinHiveObject>(),
-      createdTme: fields[7] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserHiveObject obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -135,9 +137,7 @@ class UserHiveObjectAdapter extends TypeAdapter<UserHiveObject> {
       ..writeByte(5)
       ..write(obj.city)
       ..writeByte(6)
-      ..write(obj.bulletins)
-      ..writeByte(7)
-      ..write(obj.createdTme);
+      ..write(obj.bulletins);
   }
 
   @override
@@ -164,6 +164,9 @@ BulletinHiveObject _$BulletinHiveObjectFromJson(Map<String, dynamic> json) {
     additional: json['additional'] as String,
     content: json['content'] as String,
     type: _$enumDecodeNullable(_$BulletinTypeEnumMap, json['type']),
+    createdTme: json['createdTme'] == null
+        ? null
+        : DateTime.parse(json['createdTme'] as String),
   );
 }
 
@@ -174,6 +177,7 @@ Map<String, dynamic> _$BulletinHiveObjectToJson(BulletinHiveObject instance) =>
       'additional': instance.additional,
       'content': instance.content,
       'type': _$BulletinTypeEnumMap[instance.type],
+      'createdTme': instance.createdTme?.toIso8601String(),
     };
 
 T _$enumDecode<T>(
@@ -227,9 +231,6 @@ UserHiveObject _$UserHiveObjectFromJson(Map<String, dynamic> json) {
             ? null
             : BulletinHiveObject.fromJson(e as Map<String, dynamic>))
         ?.toList(),
-    createdTme: json['createdTme'] == null
-        ? null
-        : DateTime.parse(json['createdTme'] as String),
   );
 }
 
@@ -242,5 +243,4 @@ Map<String, dynamic> _$UserHiveObjectToJson(UserHiveObject instance) =>
       'phone': instance.phone,
       'city': instance.city,
       'bulletins': instance.bulletins,
-      'createdTme': instance.createdTme?.toIso8601String(),
     };
