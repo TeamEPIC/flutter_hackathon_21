@@ -14,20 +14,20 @@ class _$RegisterStateTearOff {
   const _$RegisterStateTearOff();
 
 // ignore: unused_element
-  Data<bool> call<bool>(bool value) {
-    return Data<bool>(
+  Data call(bool value) {
+    return Data(
       value,
     );
   }
 
 // ignore: unused_element
-  Loading<bool> loading<bool>() {
-    return Loading<bool>();
+  Loading loading() {
+    return const Loading();
   }
 
 // ignore: unused_element
-  ErrorDetails<bool> error<bool>([String message]) {
-    return ErrorDetails<bool>(
+  ErrorDetails error([String message]) {
+    return ErrorDetails(
       message,
     );
   }
@@ -38,7 +38,7 @@ class _$RegisterStateTearOff {
 const $RegisterState = _$RegisterStateTearOff();
 
 /// @nodoc
-mixin _$RegisterState<bool> {
+mixin _$RegisterState {
   @optionalTypeArgs
   TResult when<TResult extends Object>(
     TResult $default(bool value), {
@@ -54,65 +54,64 @@ mixin _$RegisterState<bool> {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(Data<bool> value), {
-    @required TResult loading(Loading<bool> value),
-    @required TResult error(ErrorDetails<bool> value),
+    TResult $default(Data value), {
+    @required TResult loading(Loading value),
+    @required TResult error(ErrorDetails value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(Data<bool> value), {
-    TResult loading(Loading<bool> value),
-    TResult error(ErrorDetails<bool> value),
+    TResult $default(Data value), {
+    TResult loading(Loading value),
+    TResult error(ErrorDetails value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $RegisterStateCopyWith<bool, $Res> {
+abstract class $RegisterStateCopyWith<$Res> {
   factory $RegisterStateCopyWith(
-          RegisterState<bool> value, $Res Function(RegisterState<bool>) then) =
-      _$RegisterStateCopyWithImpl<bool, $Res>;
+          RegisterState value, $Res Function(RegisterState) then) =
+      _$RegisterStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RegisterStateCopyWithImpl<bool, $Res>
-    implements $RegisterStateCopyWith<bool, $Res> {
+class _$RegisterStateCopyWithImpl<$Res>
+    implements $RegisterStateCopyWith<$Res> {
   _$RegisterStateCopyWithImpl(this._value, this._then);
 
-  final RegisterState<bool> _value;
+  final RegisterState _value;
   // ignore: unused_field
-  final $Res Function(RegisterState<bool>) _then;
+  final $Res Function(RegisterState) _then;
 }
 
 /// @nodoc
-abstract class $DataCopyWith<bool, $Res> {
-  factory $DataCopyWith(Data<bool> value, $Res Function(Data<bool>) then) =
-      _$DataCopyWithImpl<bool, $Res>;
+abstract class $DataCopyWith<$Res> {
+  factory $DataCopyWith(Data value, $Res Function(Data) then) =
+      _$DataCopyWithImpl<$Res>;
   $Res call({bool value});
 }
 
 /// @nodoc
-class _$DataCopyWithImpl<bool, $Res>
-    extends _$RegisterStateCopyWithImpl<bool, $Res>
-    implements $DataCopyWith<bool, $Res> {
-  _$DataCopyWithImpl(Data<bool> _value, $Res Function(Data<bool>) _then)
-      : super(_value, (v) => _then(v as Data<bool>));
+class _$DataCopyWithImpl<$Res> extends _$RegisterStateCopyWithImpl<$Res>
+    implements $DataCopyWith<$Res> {
+  _$DataCopyWithImpl(Data _value, $Res Function(Data) _then)
+      : super(_value, (v) => _then(v as Data));
 
   @override
-  Data<bool> get _value => super._value as Data<bool>;
+  Data get _value => super._value as Data;
 
   @override
   $Res call({
     Object value = freezed,
   }) {
-    return _then(Data<bool>(
+    return _then(Data(
       value == freezed ? _value.value : value as bool,
     ));
   }
 }
 
 /// @nodoc
-class _$Data<bool> implements Data<bool> {
+class _$Data implements Data {
   const _$Data(this.value) : assert(value != null);
 
   @override
@@ -120,13 +119,13 @@ class _$Data<bool> implements Data<bool> {
 
   @override
   String toString() {
-    return 'RegisterState<$bool>(value: $value)';
+    return 'RegisterState(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Data<bool> &&
+        (other is Data &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
@@ -137,8 +136,8 @@ class _$Data<bool> implements Data<bool> {
 
   @JsonKey(ignore: true)
   @override
-  $DataCopyWith<bool, Data<bool>> get copyWith =>
-      _$DataCopyWithImpl<bool, Data<bool>>(this, _$identity);
+  $DataCopyWith<Data> get copyWith =>
+      _$DataCopyWithImpl<Data>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -171,9 +170,9 @@ class _$Data<bool> implements Data<bool> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(Data<bool> value), {
-    @required TResult loading(Loading<bool> value),
-    @required TResult error(ErrorDetails<bool> value),
+    TResult $default(Data value), {
+    @required TResult loading(Loading value),
+    @required TResult error(ErrorDetails value),
   }) {
     assert($default != null);
     assert(loading != null);
@@ -184,9 +183,9 @@ class _$Data<bool> implements Data<bool> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(Data<bool> value), {
-    TResult loading(Loading<bool> value),
-    TResult error(ErrorDetails<bool> value),
+    TResult $default(Data value), {
+    TResult loading(Loading value),
+    TResult error(ErrorDetails value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -197,45 +196,42 @@ class _$Data<bool> implements Data<bool> {
   }
 }
 
-abstract class Data<bool> implements RegisterState<bool> {
-  const factory Data(bool value) = _$Data<bool>;
+abstract class Data implements RegisterState {
+  const factory Data(bool value) = _$Data;
 
   bool get value;
   @JsonKey(ignore: true)
-  $DataCopyWith<bool, Data<bool>> get copyWith;
+  $DataCopyWith<Data> get copyWith;
 }
 
 /// @nodoc
-abstract class $LoadingCopyWith<bool, $Res> {
-  factory $LoadingCopyWith(
-          Loading<bool> value, $Res Function(Loading<bool>) then) =
-      _$LoadingCopyWithImpl<bool, $Res>;
+abstract class $LoadingCopyWith<$Res> {
+  factory $LoadingCopyWith(Loading value, $Res Function(Loading) then) =
+      _$LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<bool, $Res>
-    extends _$RegisterStateCopyWithImpl<bool, $Res>
-    implements $LoadingCopyWith<bool, $Res> {
-  _$LoadingCopyWithImpl(
-      Loading<bool> _value, $Res Function(Loading<bool>) _then)
-      : super(_value, (v) => _then(v as Loading<bool>));
+class _$LoadingCopyWithImpl<$Res> extends _$RegisterStateCopyWithImpl<$Res>
+    implements $LoadingCopyWith<$Res> {
+  _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
+      : super(_value, (v) => _then(v as Loading));
 
   @override
-  Loading<bool> get _value => super._value as Loading<bool>;
+  Loading get _value => super._value as Loading;
 }
 
 /// @nodoc
-class _$Loading<bool> implements Loading<bool> {
+class _$Loading implements Loading {
   const _$Loading();
 
   @override
   String toString() {
-    return 'RegisterState<$bool>.loading()';
+    return 'RegisterState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Loading<bool>);
+    return identical(this, other) || (other is Loading);
   }
 
   @override
@@ -272,9 +268,9 @@ class _$Loading<bool> implements Loading<bool> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(Data<bool> value), {
-    @required TResult loading(Loading<bool> value),
-    @required TResult error(ErrorDetails<bool> value),
+    TResult $default(Data value), {
+    @required TResult loading(Loading value),
+    @required TResult error(ErrorDetails value),
   }) {
     assert($default != null);
     assert(loading != null);
@@ -285,9 +281,9 @@ class _$Loading<bool> implements Loading<bool> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(Data<bool> value), {
-    TResult loading(Loading<bool> value),
-    TResult error(ErrorDetails<bool> value),
+    TResult $default(Data value), {
+    TResult loading(Loading value),
+    TResult error(ErrorDetails value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -298,41 +294,40 @@ class _$Loading<bool> implements Loading<bool> {
   }
 }
 
-abstract class Loading<bool> implements RegisterState<bool> {
-  const factory Loading() = _$Loading<bool>;
+abstract class Loading implements RegisterState {
+  const factory Loading() = _$Loading;
 }
 
 /// @nodoc
-abstract class $ErrorDetailsCopyWith<bool, $Res> {
+abstract class $ErrorDetailsCopyWith<$Res> {
   factory $ErrorDetailsCopyWith(
-          ErrorDetails<bool> value, $Res Function(ErrorDetails<bool>) then) =
-      _$ErrorDetailsCopyWithImpl<bool, $Res>;
+          ErrorDetails value, $Res Function(ErrorDetails) then) =
+      _$ErrorDetailsCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
 /// @nodoc
-class _$ErrorDetailsCopyWithImpl<bool, $Res>
-    extends _$RegisterStateCopyWithImpl<bool, $Res>
-    implements $ErrorDetailsCopyWith<bool, $Res> {
+class _$ErrorDetailsCopyWithImpl<$Res> extends _$RegisterStateCopyWithImpl<$Res>
+    implements $ErrorDetailsCopyWith<$Res> {
   _$ErrorDetailsCopyWithImpl(
-      ErrorDetails<bool> _value, $Res Function(ErrorDetails<bool>) _then)
-      : super(_value, (v) => _then(v as ErrorDetails<bool>));
+      ErrorDetails _value, $Res Function(ErrorDetails) _then)
+      : super(_value, (v) => _then(v as ErrorDetails));
 
   @override
-  ErrorDetails<bool> get _value => super._value as ErrorDetails<bool>;
+  ErrorDetails get _value => super._value as ErrorDetails;
 
   @override
   $Res call({
     Object message = freezed,
   }) {
-    return _then(ErrorDetails<bool>(
+    return _then(ErrorDetails(
       message == freezed ? _value.message : message as String,
     ));
   }
 }
 
 /// @nodoc
-class _$ErrorDetails<bool> implements ErrorDetails<bool> {
+class _$ErrorDetails implements ErrorDetails {
   const _$ErrorDetails([this.message]);
 
   @override
@@ -340,13 +335,13 @@ class _$ErrorDetails<bool> implements ErrorDetails<bool> {
 
   @override
   String toString() {
-    return 'RegisterState<$bool>.error(message: $message)';
+    return 'RegisterState.error(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ErrorDetails<bool> &&
+        (other is ErrorDetails &&
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
@@ -357,8 +352,8 @@ class _$ErrorDetails<bool> implements ErrorDetails<bool> {
 
   @JsonKey(ignore: true)
   @override
-  $ErrorDetailsCopyWith<bool, ErrorDetails<bool>> get copyWith =>
-      _$ErrorDetailsCopyWithImpl<bool, ErrorDetails<bool>>(this, _$identity);
+  $ErrorDetailsCopyWith<ErrorDetails> get copyWith =>
+      _$ErrorDetailsCopyWithImpl<ErrorDetails>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -391,9 +386,9 @@ class _$ErrorDetails<bool> implements ErrorDetails<bool> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(Data<bool> value), {
-    @required TResult loading(Loading<bool> value),
-    @required TResult error(ErrorDetails<bool> value),
+    TResult $default(Data value), {
+    @required TResult loading(Loading value),
+    @required TResult error(ErrorDetails value),
   }) {
     assert($default != null);
     assert(loading != null);
@@ -404,9 +399,9 @@ class _$ErrorDetails<bool> implements ErrorDetails<bool> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(Data<bool> value), {
-    TResult loading(Loading<bool> value),
-    TResult error(ErrorDetails<bool> value),
+    TResult $default(Data value), {
+    TResult loading(Loading value),
+    TResult error(ErrorDetails value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -417,10 +412,10 @@ class _$ErrorDetails<bool> implements ErrorDetails<bool> {
   }
 }
 
-abstract class ErrorDetails<bool> implements RegisterState<bool> {
-  const factory ErrorDetails([String message]) = _$ErrorDetails<bool>;
+abstract class ErrorDetails implements RegisterState {
+  const factory ErrorDetails([String message]) = _$ErrorDetails;
 
   String get message;
   @JsonKey(ignore: true)
-  $ErrorDetailsCopyWith<bool, ErrorDetails<bool>> get copyWith;
+  $ErrorDetailsCopyWith<ErrorDetails> get copyWith;
 }
