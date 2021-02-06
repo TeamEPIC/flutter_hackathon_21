@@ -114,13 +114,14 @@ class UserHiveObjectAdapter extends TypeAdapter<UserHiveObject> {
       phone: fields[4] as String,
       city: fields[5] as String,
       bulletins: (fields[6] as List)?.cast<BulletinHiveObject>(),
+      createdTme: fields[7] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserHiveObject obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -134,7 +135,9 @@ class UserHiveObjectAdapter extends TypeAdapter<UserHiveObject> {
       ..writeByte(5)
       ..write(obj.city)
       ..writeByte(6)
-      ..write(obj.bulletins);
+      ..write(obj.bulletins)
+      ..writeByte(7)
+      ..write(obj.createdTme);
   }
 
   @override
@@ -224,6 +227,9 @@ UserHiveObject _$UserHiveObjectFromJson(Map<String, dynamic> json) {
             ? null
             : BulletinHiveObject.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    createdTme: json['createdTme'] == null
+        ? null
+        : DateTime.parse(json['createdTme'] as String),
   );
 }
 
@@ -236,4 +242,5 @@ Map<String, dynamic> _$UserHiveObjectToJson(UserHiveObject instance) =>
       'phone': instance.phone,
       'city': instance.city,
       'bulletins': instance.bulletins,
+      'createdTme': instance.createdTme?.toIso8601String(),
     };
