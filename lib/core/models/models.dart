@@ -28,9 +28,16 @@ class BulletinHiveObject extends HiveObject {
   String content;
   @HiveField(4)
   BulletinType type;
+  @HiveField(7)
+  DateTime createdTme;
 
   BulletinHiveObject(
-      {this.user, this.title, this.additional, this.content, this.type});
+      {this.user,
+      this.title,
+      this.additional,
+      this.content,
+      this.type,
+      this.createdTme});
 
   factory BulletinHiveObject.fromJson(Map<String, dynamic> json) =>
       _$BulletinHiveObjectFromJson(json);

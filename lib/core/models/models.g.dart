@@ -66,13 +66,14 @@ class BulletinHiveObjectAdapter extends TypeAdapter<BulletinHiveObject> {
       additional: fields[2] as String,
       content: fields[3] as String,
       type: fields[4] as BulletinType,
+      createdTme: fields[7] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, BulletinHiveObject obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.user)
       ..writeByte(1)
@@ -82,7 +83,9 @@ class BulletinHiveObjectAdapter extends TypeAdapter<BulletinHiveObject> {
       ..writeByte(3)
       ..write(obj.content)
       ..writeByte(4)
-      ..write(obj.type);
+      ..write(obj.type)
+      ..writeByte(7)
+      ..write(obj.createdTme);
   }
 
   @override
@@ -161,6 +164,9 @@ BulletinHiveObject _$BulletinHiveObjectFromJson(Map<String, dynamic> json) {
     additional: json['additional'] as String,
     content: json['content'] as String,
     type: _$enumDecodeNullable(_$BulletinTypeEnumMap, json['type']),
+    createdTme: json['createdTme'] == null
+        ? null
+        : DateTime.parse(json['createdTme'] as String),
   );
 }
 
@@ -171,6 +177,7 @@ Map<String, dynamic> _$BulletinHiveObjectToJson(BulletinHiveObject instance) =>
       'additional': instance.additional,
       'content': instance.content,
       'type': _$BulletinTypeEnumMap[instance.type],
+      'createdTme': instance.createdTme?.toIso8601String(),
     };
 
 T _$enumDecode<T>(
