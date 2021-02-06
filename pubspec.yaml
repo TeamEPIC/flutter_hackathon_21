@@ -13,6 +13,7 @@ dependencies:
   logging: ^0.11.4
   flutter_riverpod: ^0.12.3+1
   freezed_annotation: ^0.12.0
+  json_annotation: ^3.1.1
 
   hive: ^1.4.4+1
   hive_flutter: ^0.3.1
@@ -20,9 +21,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.11.1
+
   freezed: ^0.12.7
-  lint: "1.4.0-dev.d210.1"
+  hive_generator: ^0.8.2
+  json_serializable: ^3.5.1
+  build_runner: ^1.11.1
+  pedantic: ^1.9.2
 
 flutter:
   uses-material-design: true
