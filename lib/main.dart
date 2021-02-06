@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hackathon_21/core/constants/app/app_constants.dart';
 import 'package:flutter_hackathon_21/core/init/navigation/navigation_route.dart';
 import 'package:flutter_hackathon_21/core/init/navigation/navigation_service.dart';
-import 'package:flutter_hackathon_21/view/home/view/home_page.dart';
+import 'package:flutter_hackathon_21/view/authentication/auth/login/login_screen.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logging/logging.dart';
-
-
-
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +33,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       //darkTheme: ThemeData.dark(),
-      home: HomePage(),
+      home: LoginScreen(),
     );
   }
 }
