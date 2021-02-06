@@ -61,11 +61,11 @@ class BulletinHiveObjectAdapter extends TypeAdapter<BulletinHiveObject> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return BulletinHiveObject(
-      fields[0] as UserHiveObject,
-      fields[1] as String,
-      fields[2] as String,
-      fields[3] as String,
-      fields[4] as BulletinType,
+      user: fields[0] as UserHiveObject,
+      title: fields[1] as String,
+      additional: fields[2] as String,
+      content: fields[3] as String,
+      type: fields[4] as BulletinType,
     );
   }
 
@@ -154,13 +154,13 @@ class UserHiveObjectAdapter extends TypeAdapter<UserHiveObject> {
 
 BulletinHiveObject _$BulletinHiveObjectFromJson(Map<String, dynamic> json) {
   return BulletinHiveObject(
-    json['user'] == null
+    user: json['user'] == null
         ? null
         : UserHiveObject.fromJson(json['user'] as Map<String, dynamic>),
-    json['title'] as String,
-    json['additional'] as String,
-    json['content'] as String,
-    _$enumDecodeNullable(_$BulletinTypeEnumMap, json['type']),
+    title: json['title'] as String,
+    additional: json['additional'] as String,
+    content: json['content'] as String,
+    type: _$enumDecodeNullable(_$BulletinTypeEnumMap, json['type']),
   );
 }
 
