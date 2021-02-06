@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/cihan/FlutterProjects/flutter_hackathon_21/lib/core/providers/boxs_api_providers.dart';
 import 'package:flutter_hackathon_21/core/models/states.dart';
+import 'package:flutter_hackathon_21/core/providers/boxs_api_providers.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:logging/logging.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/cihan/FlutterProjects/flutter_hackathon_21/lib/core/providers/boxs_api_providers.dart';
 import 'package:flutter_hackathon_21/core/constants/app/app_constants.dart';
 import 'package:flutter_hackathon_21/core/models/models.dart';
+import 'package:flutter_hackathon_21/core/providers/boxs_api_providers.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -55,8 +55,7 @@ class BulletinsBoxWidget extends StatelessWidget {
 class BulletionsBoxTestWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Column(
+    return Column(
       children: [
         BulletinsBoxWidget(builder: (context, bulletins, child) {
           return Text('$bulletins');
@@ -86,38 +85,36 @@ class BulletionsBoxTestWidget extends StatelessWidget {
           child: Text('Clear'),
         )
       ],
-    ));
+    );
   }
 }
 
 class UserBoxTestWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          UserBoxWidget(
-            builder: (context, user, child) => Text('${user}'),
-          ),
-          RaisedButton(onPressed: () {
-            final newUSer = UserHiveObject(
-                age: 18,
-                name: 'cihan',
-                bio: 'asdsad',
-                city: 'asdsa',
-                mail: 'asdsa',
-                phone: 'asdsad');
+    return Column(
+      children: [
+        UserBoxWidget(
+          builder: (context, user, child) => Text('${user}'),
+        ),
+        RaisedButton(onPressed: () {
+          final newUSer = UserHiveObject(
+              age: 18,
+              name: 'cihan',
+              bio: 'asdsad',
+              city: 'asdsa',
+              mail: 'asdsa',
+              phone: 'asdsad');
 
-            context.read(UserBoxApiProvider.provider).create(newUSer);
-          }),
-          RaisedButton(
-            onPressed: () {
-              context.read(UserBoxApiProvider.provider).clearAll();
-            },
-            child: Text('Clear'),
-          )
-        ],
-      ),
+          context.read(UserBoxApiProvider.provider).create(newUSer);
+        }),
+        RaisedButton(
+          onPressed: () {
+            context.read(UserBoxApiProvider.provider).clearAll();
+          },
+          child: Text('Clear'),
+        )
+      ],
     );
   }
 }

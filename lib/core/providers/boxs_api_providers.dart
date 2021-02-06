@@ -89,6 +89,7 @@ class BulletinsBoxApiProvider extends BoxApiBase<BulletinHiveObject>
     if (false) {
       _init();
     }
+    test();
   }
 
   static final provider = Provider((ref) => BulletinsBoxApiProvider(ref.read));
@@ -103,5 +104,28 @@ class BulletinsBoxApiProvider extends BoxApiBase<BulletinHiveObject>
 
       await _box.addAll(hiveObjects);
     }
+  }
+
+  Future<void> test() async {
+    await clearAll();
+
+    final mock = <BulletinHiveObject>[
+      BulletinHiveObject(
+          user: UserHiveObject(
+              phone: '05322709042',
+              mail: 'b.cihancengiz@gmail.com',
+              city: 'Antalya',
+              bio: 'bio',
+              name: 'Cihan Cengiz',
+              age: 29),
+          type: BulletinType.mentor,
+          content: 'Matematik',
+          additional:
+              'additional additional additional additional additional additional',
+          title: 'Matematik Dersi')
+    ];
+
+    await Future.forEach<BulletinHiveObject>(
+        mock, (element) async => await create(element));
   }
 }
