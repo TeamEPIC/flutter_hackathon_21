@@ -28,7 +28,16 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) => Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [buildLotie, welcomeText(context)],
+          children: [
+            buildLotie,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                appNameText(context),
+                sloganText(context),
+              ],
+            ),
+          ],
         ),
       );
 
@@ -40,7 +49,9 @@ class _SplashScreenState extends State<SplashScreen>
           ..forward();
       });
 
-  Widget welcomeText(BuildContext context) => Center(
-      child:
-          Text(AppConstants.WELCOME_TEXT, style: context.textTheme.headline3));
+  Widget appNameText(BuildContext context) => Center(
+      child: Text(AppConstants.APP_NAME, style: context.textTheme.headline3));
+
+  Text sloganText(BuildContext context) =>
+      Text(AppConstants.APP_SLOGAN, style: context.textTheme.headline6);
 }

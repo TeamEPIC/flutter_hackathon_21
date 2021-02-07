@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 extension ContextExtension on BuildContext {
@@ -15,8 +13,4 @@ extension ThemeExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => theme.textTheme;
   ColorScheme get colors => theme.colorScheme;
-}
-
-extension PageExtension on BuildContext {
-  Color get randomColor => Colors.primaries[Random().nextInt(17)];
 }

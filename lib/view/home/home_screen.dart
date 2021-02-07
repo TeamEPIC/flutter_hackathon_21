@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 4),
                   const Opacity(
                     opacity: 0.6,
-                    child: Text('Yardimlasma Platformu',
+                    child: Text(AppConstants.APP_SLOGAN,
                         style: TextStyle(fontSize: 9)),
                   ),
                 ],

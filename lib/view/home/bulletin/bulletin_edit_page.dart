@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hackathon_21/core/constants/app/app_constants.dart';
 import 'package:flutter_hackathon_21/core/models/models.dart';
 import 'package:flutter_hackathon_21/core/providers/boxs_api_providers.dart';
 import 'package:flutter_hackathon_21/view/shared/container_card_widget.dart';
@@ -31,17 +32,10 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
             createdTme: DateTime.now());
   }
 
-  String get _appBarTitle =>
-      widget.bulletin == null ? 'Yeni Ilan' : 'Ilani Duzenle';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: Text(_appBarTitle),
-      ),
+      appBar: bulettinAppBar(context),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           _bulletin.createdTme = DateTime.now();
@@ -52,7 +46,22 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
         },
         child: Icon(Icons.save),
       ),
-      body: SingleChildScrollView(
+      body: bulletinListView,
+    );
+  }
+
+  AppBar bulettinAppBar(BuildContext context) {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      title: Text(_appBarTitle),
+    );
+  }
+
+  String get _appBarTitle =>
+      widget.bulletin == null ? 'Yeni İlan' : 'İlani Düzenle';
+
+  Widget get bulletinListView => SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ListView(
@@ -82,8 +91,8 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           icon: Icon(Icons.subtitles),
-                          labelText: 'Aciklama',
-                          hintText: 'Buraya ilan detayini giriniz'),
+                          labelText: 'Açiklama',
+                          hintText: 'İlan detayini giriniz'),
                       onChanged: (value) => _bulletin.additional = value),
                 ),
               ),
@@ -123,7 +132,7 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
                           children: [
                             Icon(Icons.child_care),
                             SizedBox(width: 4),
-                            Text('Ogrenci')
+                            Text(AppConstants.OGRENCI)
                           ],
                         ),
                       ),
@@ -133,7 +142,7 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
                           children: [
                             Icon(Icons.school_outlined),
                             SizedBox(width: 4),
-                            Text('Mentor')
+                            Text(AppConstants.MENTOR)
                           ],
                         ),
                       ),
@@ -143,7 +152,7 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
                           children: [
                             Icon(Icons.book),
                             SizedBox(width: 4),
-                            Text('Bagis')
+                            Text(AppConstants.BAGIS)
                           ],
                         ),
                       )
@@ -153,7 +162,5 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
             ],
           ),
         ),
-      ),
-    );
-  }
+      );
 }

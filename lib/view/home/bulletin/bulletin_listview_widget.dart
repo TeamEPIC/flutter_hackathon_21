@@ -41,56 +41,10 @@ class BulletinListTileWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: InkWell(
-                          onTap: () {
-                            showDialog(
-                                context: context,
-                                child: ProfileDialog(bulletin.user));
-                          },
-                          child: AvatarWidget(bulletin.user.name),
-                        ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('${bulletin.user.name}'),
-                          SizedBox(height: 4),
-                          BulletinCreatedDateLabel(bulletin.createdTme)
-                        ],
-                      ),
-                      Spacer(),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          BulletinTypeWidget(bulletin.type),
-                          LocationLabel(bulletin.user.city)
-                        ],
-                      )
-                    ],
-                  ),
+                  userNameRow(context),
                   Divider(),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      '${bulletin.title}',
-                      style: TextStyle(fontSize: 22),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: 0.8,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        '${bulletin.additional}',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 4,
-                      ),
-                    ),
-                  ),
+                  titlePadding(),
+                  addionalWidget(),
                 ],
               ),
               Divider(),
@@ -98,37 +52,9 @@ class BulletinListTileWidget extends StatelessWidget {
                 children: [
                   ContentChip(bulletin.content),
                   Spacer(),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(32),
-                    child: Container(
-                        color: Theme.of(context).accentColor.withOpacity(0.1),
-                        width: 36,
-                        height: 36,
-                        child: IconButton(
-                          icon: Icon(Icons.mail),
-                          onPressed: () {
-                            Scaffold.of(context).showSnackBar(
-                                SnackBar(content: Text('Mail Aksiyonu')));
-                          },
-                          iconSize: 18,
-                        )),
-                  ),
+                  mailAndSnackbarWidget(context),
                   SizedBox(width: 8),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(32),
-                    child: Container(
-                        color: Theme.of(context).accentColor.withOpacity(0.1),
-                        width: 36,
-                        height: 36,
-                        child: IconButton(
-                          icon: Icon(Icons.phone),
-                          onPressed: () {
-                            Scaffold.of(context).showSnackBar(
-                                SnackBar(content: Text('Arama Aksiyonu')));
-                          },
-                          iconSize: 18,
-                        )),
-                  )
+                  searchWidget(context)
                 ],
               )
             ],
@@ -137,6 +63,78 @@ class BulletinListTileWidget extends StatelessWidget {
       ),
     );
   }
+
+  Widget userNameRow(BuildContext context) => Row(children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: InkWell(
+            onTap: () {
+              showDialog(context: context, child: ProfileDialog(bulletin.user));
+            },
+            child: AvatarWidget(bulletin.user.name),
+          ),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('${bulletin.user.name}'),
+            SizedBox(height: 4),
+            BulletinCreatedDateLabel(bulletin.createdTme)
+          ],
+        ),
+        Spacer(),
+        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          BulletinTypeWidget(bulletin.type),
+          LocationLabel(bulletin.user.city)
+        ])
+      ]);
+
+  Padding titlePadding() => Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        '${bulletin.title}',
+        style: TextStyle(fontSize: 22),
+      ));
+
+  Opacity addionalWidget() => Opacity(
+      opacity: 0.8,
+      child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            '${bulletin.additional}',
+            overflow: TextOverflow.ellipsis,
+            maxLines: 4,
+          )));
+
+  ClipRRect mailAndSnackbarWidget(BuildContext context) => ClipRRect(
+      borderRadius: BorderRadius.circular(32),
+      child: Container(
+          color: Theme.of(context).accentColor.withOpacity(0.1),
+          width: 36,
+          height: 36,
+          child: IconButton(
+            icon: Icon(Icons.mail),
+            onPressed: () {
+              Scaffold.of(context)
+                  .showSnackBar(SnackBar(content: Text('Mail Aksiyonu')));
+            },
+            iconSize: 18,
+          )));
+
+  ClipRRect searchWidget(BuildContext context) => ClipRRect(
+      borderRadius: BorderRadius.circular(32),
+      child: Container(
+          color: Theme.of(context).accentColor.withOpacity(0.1),
+          width: 36,
+          height: 36,
+          child: IconButton(
+            icon: Icon(Icons.phone),
+            onPressed: () {
+              Scaffold.of(context)
+                  .showSnackBar(SnackBar(content: Text('Arama Aksiyonu')));
+            },
+            iconSize: 18,
+          )));
 }
 
 class BulletinTypeWidget extends StatelessWidget {

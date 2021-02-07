@@ -20,63 +20,71 @@ class ProfileDialog extends StatelessWidget {
                   color: Theme.of(context).accentColor.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8)),
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  AvatarWidget(user.name),
-                  SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${user.name}',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        SizedBox(height: 4),
-                        Opacity(
-                            opacity: 0.8,
-                            child: Text(
-                              '${user.bio}',
-                              overflow: TextOverflow.ellipsis,
-                            )),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              child: userNameBioWidget,
             ),
             Divider(),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.cake),
-              title: Text('${user.age}'),
-              trailing: Text('yasinda', style: TextStyle(fontSize: 12)),
-            ),
+            userAgeWidget,
             Divider(height: 0),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.map),
-              title: Text('${user.city}'),
-              trailing: Text('yasiyor', style: TextStyle(fontSize: 12)),
-            ),
+            userCityWidget,
             Divider(height: 0),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.mail),
-              title: Text('${user.mail}'),
-              trailing: Icon(Icons.navigate_next),
-            ),
+            userEmailWidget,
             Divider(height: 0),
-            ListTile(
-              dense: true,
-              leading: Icon(Icons.phone),
-              title: Text('${user.phone}'),
-              trailing: Icon(Icons.navigate_next),
-            ),
+            userPhoneWidget,
           ],
         ),
       ),
     );
   }
+
+  Row get userNameBioWidget => Row(children: [
+        AvatarWidget(user.name),
+        SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${user.name}',
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(height: 4),
+              Opacity(
+                  opacity: 0.8,
+                  child: Text(
+                    '${user.bio}',
+                    overflow: TextOverflow.ellipsis,
+                  )),
+            ],
+          ),
+        )
+      ]);
+
+  ListTile get userAgeWidget => ListTile(
+        dense: true,
+        leading: Icon(Icons.cake),
+        title: Text('${user.age}'),
+        trailing: Text('yasinda', style: TextStyle(fontSize: 12)),
+      );
+
+  ListTile get userCityWidget => ListTile(
+        dense: true,
+        leading: Icon(Icons.map),
+        title: Text('${user.city}'),
+        trailing: Text('yasiyor', style: TextStyle(fontSize: 12)),
+      );
+
+  ListTile get userEmailWidget => ListTile(
+        dense: true,
+        leading: Icon(Icons.mail),
+        title: Text('${user.mail}'),
+        trailing: Icon(Icons.navigate_next),
+      );
+
+  ListTile get userPhoneWidget => ListTile(
+        dense: true,
+        leading: Icon(Icons.phone),
+        title: Text('${user.phone}'),
+        trailing: Icon(Icons.navigate_next),
+      );
 }
