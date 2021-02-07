@@ -2,11 +2,18 @@ import 'package:flutter_hackathon_21/core/models/models.dart';
 
 class AppConstants {
   static const APP_NAME = 'YÖNDER';
+  static const APP_SLOGAN = 'Yardımlaşma Platformu';
+  static const APP_LOGO = 'assets/logo.png';
+
+  static const BAGIS = 'Bağış';
+  static const MENTOR = 'Mentor';
+  static const OGRENCI = 'Öğrenci';
+
   static const BOX_NAME_USER = 'user';
   static const BOX_NAME_BULLETINS = 'bulletins';
+
   static const MOCK_BULLETINS_PATH = 'assets/mock_bulletins.json';
   static const LOTTIE_SPLASH = 'assets/lottie/splash.json';
-  static const WELCOME_TEXT = 'YÖNDER';
 }
 
 class Mocks {
