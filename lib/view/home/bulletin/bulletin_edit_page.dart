@@ -54,7 +54,7 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(16.0),
           child: ListView(
             shrinkWrap: true,
             children: [
@@ -74,7 +74,7 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 8),
+              SizedBox(height: 16),
               ContainerCardWidget(
                 child: ListTile(
                   title: TextField(
@@ -87,7 +87,7 @@ class _BulletinCreatePageState extends State<BulletinCreatePage> {
                       onChanged: (value) => _bulletin.additional = value),
                 ),
               ),
-              SizedBox(height: 8),
+              SizedBox(height: 16),
               ContainerCardWidget(
                 child: ListTile(
                   title: TextField(

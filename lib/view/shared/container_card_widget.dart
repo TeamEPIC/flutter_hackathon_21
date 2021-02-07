@@ -6,6 +6,8 @@ class ContainerCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark ?? false;
+
     return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -14,7 +16,7 @@ class ContainerCardWidget extends StatelessWidget {
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
-              blurRadius: 5,
+              blurRadius: isDarkMode ? 1 : 5,
               offset: Offset.zero,
             ),
           ],

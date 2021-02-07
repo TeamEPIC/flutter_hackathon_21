@@ -55,7 +55,6 @@ class UserBoxApiProvider extends BoxApiBase<UserHiveObject>
     with ProviderMixin<UserHiveObject> {
   UserBoxApiProvider(Reader reader) : super(AppConstants.BOX_NAME_USER) {
     _reader = reader;
-    testUserProvider();
   }
 
   static final provider = Provider((ref) => UserBoxApiProvider(ref.read));
@@ -77,18 +76,6 @@ class UserBoxApiProvider extends BoxApiBase<UserHiveObject>
     _reader(RegisterStateNotifier.provider).update(RegisterState(false));
     return deletedItems;
   }
-
-  Future<void> testUserProvider() async {
-    return;
-    await clearAll();
-    await create(UserHiveObject(
-        phone: '05322709042',
-        mail: 'b.cihancengiz@gmail.com',
-        city: 'Antalya',
-        bio: 'bio',
-        name: 'Cihan Cengiz',
-        age: 29));
-  }
 }
 
 class BulletinsBoxApiProvider extends BoxApiBase<BulletinHiveObject>
@@ -97,7 +84,6 @@ class BulletinsBoxApiProvider extends BoxApiBase<BulletinHiveObject>
       : super(AppConstants.BOX_NAME_BULLETINS) {
     _reader = reader;
     _addMocks();
-    testBulletinsProvider();
   }
 
   static final provider = Provider((ref) => BulletinsBoxApiProvider(ref.read));
@@ -106,58 +92,5 @@ class BulletinsBoxApiProvider extends BoxApiBase<BulletinHiveObject>
     if (_box.isEmpty) {
       await _box.addAll(Mocks.bulletins);
     }
-  }
-
-  Future<void> testBulletinsProvider() async {
-    return;
-    await clearAll();
-
-    final mock = <BulletinHiveObject>[
-      BulletinHiveObject(
-          user: UserHiveObject(
-              phone: '05322709042',
-              mail: 'b.cihancengiz@gmail.com',
-              city: 'Antalya',
-              bio: 'bio',
-              name: 'Cihan Cengiz',
-              age: 29),
-          type: BulletinType.mentor,
-          content: 'Matematik',
-          createdTme: DateTime.now().subtract(Duration(days: 1)),
-          additional:
-              'İstanbuldada bir öğrenciye Flutter mobil uygulama eğitimi verebilir ve yazılım alanında mentörlük yapabilirim',
-          title: 'Matematik Dersi'),
-      BulletinHiveObject(
-          user: UserHiveObject(
-              phone: '05322709042',
-              mail: 'b.cihancengiz@gmail.com',
-              city: 'Antalya',
-              bio: 'bio',
-              name: 'Cihan Cengiz',
-              age: 29),
-          type: BulletinType.mentor,
-          content: 'Matematik',
-          createdTme: DateTime.now().subtract(Duration(days: 1)),
-          additional:
-              'İstanbuldada bir öğrenciye Flutter mobil uygulama eğitimi verebilir ve yazılım alanında mentörlük yapabilirim',
-          title: 'Matematik Dersi'),
-      BulletinHiveObject(
-          user: UserHiveObject(
-              phone: '05322709042',
-              mail: 'b.cihancengiz@gmail.com',
-              city: 'Antalya',
-              bio: 'bio',
-              name: 'Cihan Cengiz',
-              age: 29),
-          type: BulletinType.mentor,
-          content: 'Matematik',
-          createdTme: DateTime.now().subtract(Duration(days: 1)),
-          additional:
-              'İstanbuldada bir öğrenciye Flutter mobil uygulama eğitimi verebilir ve yazılım alanında mentörlük yapabilirim',
-          title: 'Matematik Dersi')
-    ];
-
-    await Future.forEach<BulletinHiveObject>(
-        mock, (element) async => await create(element));
   }
 }

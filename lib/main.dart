@@ -18,20 +18,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'YONDER',
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
         scaffoldBackgroundColor: Colors.grey.shade300,
         cardColor: Colors.grey.shade300,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // darkTheme: ThemeData.dark(),
-      home: HomeScreen(),
-      // home: RegisterStateConsumerWidgetBuilder(
-      //   homeWidgetBuilder: (_) => HomeScreen(),
-      //   loadingWidgetBuilder: (_) => SplashScreen(),
-      //   registerWidgetBuilder: (_) => RegisterScreen(),
-      // ),
+      darkTheme: ThemeData.dark().copyWith(accentColor: Colors.lightGreen),
+      home: RegisterStateConsumerWidgetBuilder(
+        homeWidgetBuilder: (_) => HomeScreen(),
+        loadingWidgetBuilder: (_) => SplashScreen(),
+        registerWidgetBuilder: (_) => RegisterScreen(),
+      ),
     );
   }
 }

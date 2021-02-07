@@ -37,7 +37,7 @@ class Mocks {
 
   static final _userIlan2 = BulletinHiveObject(
       additional:
-          "Okuduğum 3 kitabı(Suç ve Ceza, Monte Kristo Kontu ve Uğultu Tepeler) bitirdiğiniz zaman başka birine hediye etmeniz karşılığında hediye etmek istiyorum",
+          'Okuduğum 3 kitabı(Suç ve Ceza, Monte Kristo Kontu ve Uğultu Tepeler) bitirdiğiniz zaman başka birine hediye etmeniz karşılığında hediye etmek istiyorum',
       content: 'Kitap-Roman',
       title: 'Kitap Paylaşımı',
       type: BulletinType.book,
@@ -54,7 +54,7 @@ class Mocks {
 
   static final _userIlan3 = BulletinHiveObject(
       additional:
-          "İstanbulda'da bir öğrenciye Flutter mobil uygulama eğitimi verebilir ve yazılım alanında mentörlük yapabiliri",
+          'İstanbuldada bir öğrenciye Flutter mobil uygulama eğitimi verebilir ve yazılım alanında mentörlük yapabilirim',
       content: 'Yazılım',
       title: 'Yazılım Eğitimi',
       type: BulletinType.mentor,
@@ -71,7 +71,7 @@ class Mocks {
 
   static final _userIlan4 = BulletinHiveObject(
       additional:
-          "Hazırlık senemde okuduğum ingilizce romanları hediye etmek istiyorum",
+          'Hazırlık senemde okuduğum ingilizce romanları hediye etmek istiyorum',
       content: 'Eğitim',
       title: 'Kitap bağışı',
       type: BulletinType.book,
@@ -88,7 +88,7 @@ class Mocks {
 
   static final _userIlan5 = BulletinHiveObject(
       additional:
-          "Lise 1. sınıftayım, anlamadığım konuları bana anlatacak birini arıyorum",
+          'Lise 1. sınıftayım, anlamadığım konuları bana anlatacak birini arıyorum',
       content: 'Eğitim',
       title: 'Lise Eğitimi',
       type: BulletinType.student,
@@ -105,7 +105,7 @@ class Mocks {
 
   static final _userIlan6 = BulletinHiveObject(
       additional:
-          "Yuval Noah Harari'in Sapiens kitabını okudum ve okumayan birisiyle paylaşmak isterim.",
+          'Yuval Noah Harariin Sapiens kitabını okudum ve okumayan birisiyle paylaşmak isterim.',
       content: 'Kitap',
       title: 'Kitap Bağışı',
       type: BulletinType.student,

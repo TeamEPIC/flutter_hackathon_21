@@ -24,24 +24,25 @@ class ProfileDialog extends StatelessWidget {
                 children: [
                   AvatarWidget(user.name),
                   SizedBox(width: 12),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '${user.name}',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      SizedBox(height: 4),
-                      Opacity(opacity: 0.8, child: Text('${user.bio}')),
-                    ],
+                  Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${user.name}',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        SizedBox(height: 4),
+                        Opacity(
+                            opacity: 0.8,
+                            child: Text(
+                              '${user.bio}',
+                              overflow: TextOverflow.ellipsis,
+                            )),
+                      ],
+                    ),
                   ),
-                  Spacer(),
-                  IconButton(
-                      icon: Icon(Icons.close),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      })
                 ],
               ),
             ),
