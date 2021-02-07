@@ -1,7 +1,7 @@
 # YÖNDER 
 ## Flutter Hackathon
 
-![Alt text](screenshots/1.jpeg")
+<img src="screenshots/1.jpeg" width="100" /> <img src="screenshots/2.jpeg" width="100" /> <img src="screenshots/3.jpeg" width="100" /> <img src="screenshots/4.jpeg" width="100" /> <img src="screenshots/5.jpeg" width="100" />
 
 Dünya genelinde kitlesel ve kişisel eşitsizlik, başta çocuklar olmak üzere herhangi bir alanda eğitim öğretim görmek iseteyen insanlara engel teşkil etmektedir. Global bir etki yaratan Covid19 ile süregelen eğitim düzeni büyük çapta değişti ve pandemi nedeniyle okullara gidemeyen öğrenciler için online eğitim hem verimi düşürdü hem de yeterli imkâna sahip olmayanlar için ulaşılamaz bir hâle geldi. Gerek kitaplara ve kaynaklara gerekse eğitmen ve mentore erişmek öğrenciler için pandemiyle birlikte çözümü güç bir problem oldu.
  
