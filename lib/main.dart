@@ -26,11 +26,12 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // darkTheme: ThemeData.dark(),
-      home: RegisterStateConsumerWidgetBuilder(
-        homeWidgetBuilder: (_) => HomeScreen(),
-        loadingWidgetBuilder: (_) => SplashScreen(),
-        registerWidgetBuilder: (_) => RegisterScreen(),
-      ),
+      home: HomeScreen(),
+      // home: RegisterStateConsumerWidgetBuilder(
+      //   homeWidgetBuilder: (_) => HomeScreen(),
+      //   loadingWidgetBuilder: (_) => SplashScreen(),
+      //   registerWidgetBuilder: (_) => RegisterScreen(),
+      // ),
     );
   }
 }

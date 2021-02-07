@@ -14,6 +14,7 @@ class BulletinListViewWidget extends StatelessWidget {
         bulletins.sort((a, b) => b.createdTme.compareTo(a.createdTme));
 
         return ListView.builder(
+            padding: const EdgeInsets.all(0),
             itemCount: bulletins.length,
             itemBuilder: (context, index) {
               final bulletin = bulletins[index];
