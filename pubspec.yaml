@@ -18,6 +18,11 @@ dependencies:
   hive: ^1.4.4+1
   hive_flutter: ^0.3.1
 
+  intl: ^0.16.1
+  google_fonts: ^1.1.2
+  lottie: ^0.7.0+1
+  animate_do: ^1.7.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -30,3 +35,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/lottie/splash.json
+    - assets/logo.png
+    - assets/background.png

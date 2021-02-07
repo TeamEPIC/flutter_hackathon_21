@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_hackathon_21/core/constants/app/app_constants.dart';
 import 'package:flutter_hackathon_21/core/models/models.dart';
 import 'package:flutter_hackathon_21/core/models/states.dart';
@@ -58,6 +55,7 @@ class UserBoxApiProvider extends BoxApiBase<UserHiveObject>
     with ProviderMixin<UserHiveObject> {
   UserBoxApiProvider(Reader reader) : super(AppConstants.BOX_NAME_USER) {
     _reader = reader;
+    testUserProvider();
   }
 
   static final provider = Provider((ref) => UserBoxApiProvider(ref.read));
@@ -79,6 +77,18 @@ class UserBoxApiProvider extends BoxApiBase<UserHiveObject>
     _reader(RegisterStateNotifier.provider).update(RegisterState(false));
     return deletedItems;
   }
+
+  Future<void> testUserProvider() async {
+    return;
+    await clearAll();
+    await create(UserHiveObject(
+        phone: '05322709042',
+        mail: 'b.cihancengiz@gmail.com',
+        city: 'Antalya',
+        bio: 'bio',
+        name: 'Cihan Cengiz',
+        age: 29));
+  }
 }
 
 class BulletinsBoxApiProvider extends BoxApiBase<BulletinHiveObject>
@@ -86,27 +96,20 @@ class BulletinsBoxApiProvider extends BoxApiBase<BulletinHiveObject>
   BulletinsBoxApiProvider(Reader reader)
       : super(AppConstants.BOX_NAME_BULLETINS) {
     _reader = reader;
-    if (false) {
-      _init();
-    }
-    test();
+    _addMocks();
+    testBulletinsProvider();
   }
 
   static final provider = Provider((ref) => BulletinsBoxApiProvider(ref.read));
 
-  Future<void> _init() async {
+  Future<void> _addMocks() async {
     if (_box.isEmpty) {
-      final jsonData = jsonDecode(
-              await rootBundle.loadString(AppConstants.MOCK_BULLETINS_PATH))
-          as List<dynamic>;
-      final hiveObjects = jsonData.map((packageJson) =>
-          BulletinHiveObject.fromJson(packageJson as Map<String, dynamic>));
-
-      await _box.addAll(hiveObjects);
+      await _box.addAll(Mocks.bulletins);
     }
   }
 
-  Future<void> test() async {
+  Future<void> testBulletinsProvider() async {
+    return;
     await clearAll();
 
     final mock = <BulletinHiveObject>[
@@ -120,8 +123,37 @@ class BulletinsBoxApiProvider extends BoxApiBase<BulletinHiveObject>
               age: 29),
           type: BulletinType.mentor,
           content: 'Matematik',
+          createdTme: DateTime.now().subtract(Duration(days: 1)),
           additional:
-              'additional additional additional additional additional additional',
+              'İstanbuldada bir öğrenciye Flutter mobil uygulama eğitimi verebilir ve yazılım alanında mentörlük yapabilirim',
+          title: 'Matematik Dersi'),
+      BulletinHiveObject(
+          user: UserHiveObject(
+              phone: '05322709042',
+              mail: 'b.cihancengiz@gmail.com',
+              city: 'Antalya',
+              bio: 'bio',
+              name: 'Cihan Cengiz',
+              age: 29),
+          type: BulletinType.mentor,
+          content: 'Matematik',
+          createdTme: DateTime.now().subtract(Duration(days: 1)),
+          additional:
+              'İstanbuldada bir öğrenciye Flutter mobil uygulama eğitimi verebilir ve yazılım alanında mentörlük yapabilirim',
+          title: 'Matematik Dersi'),
+      BulletinHiveObject(
+          user: UserHiveObject(
+              phone: '05322709042',
+              mail: 'b.cihancengiz@gmail.com',
+              city: 'Antalya',
+              bio: 'bio',
+              name: 'Cihan Cengiz',
+              age: 29),
+          type: BulletinType.mentor,
+          content: 'Matematik',
+          createdTme: DateTime.now().subtract(Duration(days: 1)),
+          additional:
+              'İstanbuldada bir öğrenciye Flutter mobil uygulama eğitimi verebilir ve yazılım alanında mentörlük yapabilirim',
           title: 'Matematik Dersi')
     ];
 

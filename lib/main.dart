@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hackathon_21/core/constants/app/app_constants.dart';
-import 'package:flutter_hackathon_21/core/models/models.dart';
-import 'package:flutter_hackathon_21/core/providers/boxs_api_providers.dart';
 import 'package:flutter_hackathon_21/core/setup.dart';
-import 'package:flutter_hackathon_21/view/home/view/home_page.dart';
-import 'package:flutter_hackathon_21/view/shared/boxs_widgets.dart';
-import 'package:flutter_hackathon_21/view/shared/register_state_consumer_widgetbuilder.dart';
+import 'package:flutter_hackathon_21/view/home/home_screen.dart';
+import 'package:flutter_hackathon_21/view/register/register_screen.dart';
+import 'package:flutter_hackathon_21/view/register/register_state_consumer_widgetbuilder.dart';
+import 'package:flutter_hackathon_21/view/register/splash_screen.dart';
 import 'package:flutter_riverpod/all.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:logging/logging.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,24 +20,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          accentColor: Colors.lightGreen),
+        primarySwatch: Colors.lightGreen,
+        scaffoldBackgroundColor: Colors.grey.shade300,
+        cardColor: Colors.grey.shade300,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       // darkTheme: ThemeData.dark(),
-      home: HomePage(),
-    );
-  }
-}
-
-class _TitledTestWidget extends StatelessWidget {
-  const _TitledTestWidget(this.title);
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Center(
-        child: Text('$title'),
+      home: RegisterStateConsumerWidgetBuilder(
+        homeWidgetBuilder: (_) => HomeScreen(),
+        loadingWidgetBuilder: (_) => SplashScreen(),
+        registerWidgetBuilder: (_) => RegisterScreen(),
       ),
     );
   }

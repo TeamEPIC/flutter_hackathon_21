@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hackathon_21/core/constants/app/app_constants.dart';
 import 'package:flutter_hackathon_21/core/models/models.dart';
 import 'package:flutter_hackathon_21/core/providers/boxs_api_providers.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive/hive.dart';
 
 class UserBoxWidget extends StatelessWidget {
   final Widget child;
